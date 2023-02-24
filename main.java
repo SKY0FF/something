@@ -40,6 +40,8 @@ public class main {
         //бля ща 2 часа ночи, но я хочу удивить так сказать никиту
         //а то он думает что я нихуя не делаю
         //кста про гит хаб нужно будет сказать)
+        //ссылку сюда закину https://dzen.ru/media/mathematic/kak-izvlekat-kvadratnyi-koren-v-stolbik-pokazyvaiu-prostoi-algoritm-5f2789e4e0c3a01da2d75397
+        
     }
     public static int sqrt(int n){ // вычисляет корень не превышающий число
         if(n == 1) // если импортированное число 1, то возвращаем 1
