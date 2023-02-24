@@ -24,14 +24,9 @@ public class main {
         out.println("4) Это на сколько нужно делить число, чтобы получить число первого разряда: " + y);
         int firstrank = sqrt_x/y; // число первого разряда
         out.println("5) Число первого разряда: " + firstrank);
-        out.println("6) Корень из числа первого разряда: " + sqrt(firstrank));
-        int z = firstrank - sqrt(firstrank); // число первого разряда - корень из числа первого разряда
-        // ТАКЖЕ ЭТО ПЕРВОЕ ЧИСЛО ОТВЕТА
-        int z2 = (z*100) + (sqrt_x%100); // через 2 дня зашел в код, что это такое?
-
-        System.out.println(z2);
-        out.println(z); // вывод первого числа ответа
-        out.println(sqrt(3) + " " + sqrt_x/y);
+        out.println("6) Корень из числа первого разряда/первое число ответа: " + sqrt(firstrank));//Вот первое число ответа
+        int z = firstrank - (2*sqrt(firstrank)); // это число
+        out.println("7) Число которое нужно получить: " + z);
     }
     public static int sqrt(int n){ // вычисляет корень не превышающий число
         if(n == 1) // если импортированное число 1, то возвращаем 1
