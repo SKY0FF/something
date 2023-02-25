@@ -4,7 +4,7 @@ import static java.lang.System.out;
 public class main {
     public static void main(String[] args) {
         int sqrt_x = 555; // само число из которого нужно извлечь корень
-        out.println("1) Число из которого нужно извлечь корень: " + sqrt_x);
+        out.println("1) Число из которого нужно извле   чь корень: " + sqrt_x);
         int amount_sqrt_x = (int)(Math.ceil(Math.log10(sqrt_x))); // вычисляем сколько цифр в этом числе
         out.println("2) Сколько цифр в числе из которого нужно извлечь корень: " + amount_sqrt_x);
         int x = 0; // переменная для количества разрядов
@@ -32,7 +32,7 @@ public class main {
         int desired = (z*100)+(sqrt_x%y); // число которое нужно найти путем подбора
         out.println("9) Число которое нужно найти путем подбора: " + desired);
         int unknown = search(desired, z2);// 2 цифра ответа
-        out.println(unknown);
+        out.println("10) Второе число ответа: " + unknown);
 
 
         // теперь нужно сделать так чтобы к переменной z добавились числа из 2 разряда(название переменной desired - с англ искомый)
@@ -50,12 +50,17 @@ public class main {
     }
     public static int search(int x, int y){
         int i = 0;
+        int z = 0;
         for(i = 1; i < 9; i++){
-            if (x-((y*10) + i)*i <= 0){
+            if (x - ((y * 10) + i) * i < 0){
+                z = 1;
+                break;
+            }
+            else if(x - ((y * 10) + i) * i == 0) {
                 break;
             }
         }
-        return i-1;
+        return i-z;
     }
     public static int sqrt(int n){ // вычисляет корень не превышающий число
         if(n == 1) // если импортированное число 1, то возвращаем 1
