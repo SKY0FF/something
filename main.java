@@ -19,7 +19,7 @@ public class main {
             y *= 100;
         }
         int firstrank = sqrt_x/y; // число первого разряда
-        // а число sqrt(firstrank) - первое число ответа
+        // число sqrt(firstrank) - первое число ответа
         int z = firstrank - (sqrt(firstrank)*sqrt(firstrank)); // составляющее цифра к которой добавятся 2 цифры из другого разряда
         out.println("Первое число ответа: " + sqrt(firstrank))
     }
