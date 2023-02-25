@@ -29,9 +29,11 @@ public class main {
         out.println("7) Составляющее цифра к которой добавиться числа из другого разряда: " + z);
         int z2 = sqrt(firstrank)*2;// составляющая цифра к которой нужно подобрать и умножить что-то там
         out.println("8) Составляющая цифра к которой нужно подобрать и умножить что-то там: " + z2);
-        int desired = (z*100)+(sqrt_x%y);
-        int unknown = search(desired, z2);
-        out.println(desired);
+        int desired = (z*100)+(sqrt_x%y); // число которое нужно найти путем подбора
+        out.println("9) Число которое нужно найти путем подбора: " + desired);
+        int unknown = search(desired, z2);// 2 цифра ответа
+        out.println(unknown);
+
 
         // теперь нужно сделать так чтобы к переменной z добавились числа из 2 разряда(название переменной desired - с англ искомый)
         // это число которое получится нужно получить из формулы z2n * n, где n нужно подобрать(название unknown - типо неизвестное)
@@ -47,8 +49,13 @@ public class main {
         
     }
     public static int search(int x, int y){
-
-        return 5;
+        int i = 0;
+        for(i = 1; i < 9; i++){
+            if (x-((y*10) + i)*i <= 0){
+                break;
+            }
+        }
+        return i-1;
     }
     public static int sqrt(int n){ // вычисляет корень не превышающий число
         if(n == 1) // если импортированное число 1, то возвращаем 1
