@@ -3,7 +3,7 @@ import java.util.Optional;
 import static java.lang.System.out;
 public class main {
     public static void main(String[] args) {
-        int sqrt_x = 2; // само число из которого нужно извлечь корень
+        int sqrt_x = 341187; // само число из которого нужно извлечь корень
         out.println("1) Число из которого нужно извлечь корень: " + sqrt_x);
 
         int amount_sqrt_x = (int)(Math.ceil(Math.log10(sqrt_x))); // вычисляем сколько цифр в этом числе
@@ -35,7 +35,12 @@ public class main {
         int z_2 = sqrt(firstrank)*2;// составляющая цифра к которой нужно подобрать и умножить что-то там
         out.println("8) Составляющая цифра к которой нужно подобрать и умножить что-то там: " + z_2);
 
-        int desired = (z*100)+(sqrt_x%y); // число которое нужно найти путем подбора
+        int y2 = 1; // вспомогательная переменная
+        if(y==10000){
+            y2=100;
+        }
+        int desired = (z*100)+(sqrt_x%y/y2); // число которое нужно найти путем подбора
+        out.println(sqrt_x%y/y2);
         out.println("9) Число которое нужно найти путем подбора: " + desired);
 
         int n = search(desired, z_2);// вторая цифра ответа
@@ -73,8 +78,8 @@ public class main {
         // ссылку сюда закину https://dzen.ru/media/mathematic/kak-izvlekat-kvadratnyi-koren-v-stolbik-pokazyvaiu-prostoi-algoritm-5f2789e4e0c3a01da2d75397
 
     }
-    public static int search(int x, int y){
-        int i = 0;
+    public static int search(int x, int y){ // Проблема здесь z не приравнивается к 1 и на вывод идет 9, а не 8
+        int i = 0;                          //Параметры 911 10
         int z = 0;
         for(i = 1; i < 9; i++){
             if (x - ((y * 10) + i) * i < 0){
