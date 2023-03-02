@@ -1,9 +1,10 @@
 import java.util.Optional;
 
+import static java.lang.System.console;
 import static java.lang.System.out;
 public class main {
     public static void main(String[] args) {
-        int sqrt_x = 341187; // само число из которого нужно извлечь корень
+        int sqrt_x = 121; // само число из которого нужно извлечь корень
         out.println("1) Число из которого нужно извлечь корень: " + sqrt_x);
 
         int amount_sqrt_x = (int)(Math.ceil(Math.log10(sqrt_x))); // вычисляем сколько цифр в этом числе
@@ -39,15 +40,23 @@ public class main {
         if(y==10000){
             y2=100;
         }
+
         int desired = (z*100)+(sqrt_x%y/y2); // число которое нужно найти путем подбора
-        out.println(sqrt_x%y/y2);
+        if (desired == 0){ // если искомое число 0 значит мы уже нашли корень, если нет то продолжаем
+            out.println("Корень из " + sqrt_x + " равен " + sqrt(firstrank));
+            System.exit(0);
+        }
         out.println("9) Число которое нужно найти путем подбора: " + desired);
 
         int n = search(desired, z_2);// вторая цифра ответа
         out.println("10) Второе число ответа: " + n);
+        if (sqrt_x == ((sqrt(firstrank)*10+n)*(sqrt(firstrank)*10+n))){
+            int answer = ((sqrt(firstrank))*10)+n;
+            out.println("Корень из " + sqrt_x + " равен " + answer);
+            System.exit(0);
+        }
 
-        int desired_2 = ((desired - ((z_2 * 10) + n) * n)*100)+(sqrt_x%(y/*ТУТ НУЖНО ПРИДУМАТЬ АЛГОРИТМ ПОТОМУ ЧТО ЕСЛИ
-        ДЕЛИТЬ НА 100 ТО ПОЛУЧАЕТСЯ ОШИБКА, НУЖНО ЧТОБЫ ЕСЛИ бля в пизду я устал завтра продолжу*//100));// другое число которое нужно найти путем подбора
+        int desired_2 = ((desired - ((z_2 * 10) + n) * n)*100)+(sqrt_x%(y/y2));// другое число которое нужно найти путем подбора
         out.println("11) Другое число которое нужно найти путем подбора: " + desired_2);
 
         int z_3 = (sqrt(firstrank)*10+n)*2;// 2 составляющая цифра к которой нужно подобрать и умножить что-то там
@@ -55,7 +64,9 @@ public class main {
 
         int n_2 = search(desired_2, z_3);// 3 число ответа
         out.println("13) Третье число ответа: " + n_2);
-
+        if (((desired_2 - ((z_3 * 10) + n_2) * n_2)*100)+(sqrt_x%(y/100)) == 0){
+            out.println("Корень из " + sqrt_x + "равен " + n + n_2);
+        }
         int desired_3 = ((desired_2 - ((z_3 * 10) + n_2) * n_2)*100)+(sqrt_x%(y/100));// 27500
         out.println(desired_3);
         int z_4 = (sqrt(firstrank)*100+n*10+n_2) * 2;
@@ -72,15 +83,12 @@ public class main {
         // к alpha нужно добавить числа 3 разряда, если их нет то будут нули, это число тоже самое что и desired
         // два числа ответа нужно *2 и к нему, по формуле xn*n высчитать desired
         // ну и так до бесконечности можно
-        // ща 2 часа ночи кста
-        // кста про гит хаб нужно будет сказать)
-        // ссылку сюда закину https://dzen.ru/media/mathematic/kak-izvlekat-kvadratnyi-koren-v-stolbik-pokazyvaiu-prostoi-algoritm-5f2789e4e0c3a01da2d75397
 
     }
-    public static int search(int x, int y){ // Проблема здесь z не приравнивается к 1 и на вывод идет 9, а не 8
-        int i = 0;                          //Параметры 911 10
+    public static int search(int x, int y){ // высчитывает число n
+        int i = 0;
         int z = 0;
-        for(i = 1; i < 9; i++){
+        for(i = 1; i < 10; i++){
             if (x - ((y * 10) + i) * i < 0){
                 z = 1;
                 break;
