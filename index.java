@@ -108,11 +108,12 @@ public class index {
         int i;
         int z = 0;
         for(i = 1; i < 11; i++){
-            if (x - ((y * 10) + i) * i < 0){
+            int n = x - ((y * 10) + i) * i;
+            if (n < 0){
                 z = 1;
                 break;
             }
-            else if(x - ((y * 10) + i) * i == 0) {
+            else if(n == 0) {
                 break;
             }
 
