@@ -102,8 +102,10 @@ public class index {
         else if(sqrt_x < 100){
             out.println("Корень из "+ sqrt_x + " равен " + (sqrt(first_rank)) + "," + n + n_2 + n_3 + n_4 + n_5 + n_6 + n_7);
         }
+        //1 метод высчитывает цифру ответа
+        //2 метод высчитывает бинарным поиском корень
     }
-    public static int search(int x, int y){ // высчитывает число n
+    public static int search(int x, int y){ // высчитывает цифру n
         int i;
         int z = 0;
         for(i = 1; i < 11; i++){
